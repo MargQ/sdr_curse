@@ -1,45 +1,31 @@
+import numpy as np 
 import time 
-import random
-import numpy as np
-import matplotlib.pyplot as plt
+import random 
+import matplotlib.pyplot as plt 
 
-
-
-# списки для хранения времени сортировки
-list_times = []
-numpy_times = []
-
-
-element_counts = list(range(100000, 5000000, 150000))
-
-for count in element_counts:
-    # случайный массив данных для сортировки
-    data = np.random.rand(count)
-
-    # время сортировки для списка Python
-    start_time = time.time()
-    sorted_list = np.sort(data)
-    list_time = time.time() - start_time
-    list_times.append(list_time)
-
-    # время сортировки для NumPy
-    start_time = time.time()
-    sorted_numpy = np.sort(data)
-    numpy_time = time.time() - start_time
-    numpy_times.append(numpy_time)
-
-# построение графика
-plt.figure(figsize=(10, 6))
-plt.plot(element_counts, list_times, label='Python Lists')
-plt.plot(element_counts, numpy_times, label='NumPy')
-plt.xlabel('Количество элементов')
-plt.ylabel('Время выполнения, с')
-plt.title('Сравнение времени сортировки Python Lists и NumPy')
-plt.legend()
-plt.grid(True)
+list_times = [] 
+np_times = [] 
+element_counts = [] 
+   
+for i in range(10, 5000000, 150000): 
+	element_counts.append(i) 
+	big_np_array = np.random.sample(i) 
+	start = time.time() 
+	np.sort(big_np_array) 
+	end = time.time() - start 
+	np_times.append(end) 
+	big_lists_array = []
+	for j in range(i):
+		big_lists_array.append(random.random()) 
+	start = time.time() 
+	big_lists_array.sort() 
+	end = time.time() - start 
+	list_times.append(end) 
+   
+plt.plot(element_counts, np_times) 
+plt.plot(element_counts, list_times) 
+plt.xlabel('Номер элемента') 
+plt.ylabel('Время (с)') 
+plt.grid() 
+plt.legend() 
 plt.show()
-
-
-
-
-
