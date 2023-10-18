@@ -1,20 +1,23 @@
+# -*- coding: utf-8 -*-
 
 from scipy.fftpack import fft, ifft,  fftshift, ifftshift
 import numpy as np
 import matplotlib.pyplot as plt
 
 
-fc=10*2 # Частота косинуса, увеличили в 2 раза
-fs=32*fc # частота дискретизации, избыточная 
+fc=20 # Частота косинуса 
+fs=320 * fc
 t=np.arange( 0, 2,  1/fs) # длительность сигнала 2 с
 x=np.cos(2*np.pi*fc*t) # формирование временного сигнала
+
 plt.figure(1)
 plt.plot(t,x) 
 #plt.stem(t,x) # для отображения временных отсчетов сигнала, выбрать длительность 0.2 сек
 plt.xlabel('$t=nT_s$')
 plt.ylabel('$x[n]$') 
-N=256 # количество точек ДПФ
+N=512 # количество точек ДПФ
 X = fft(x,N)/N # вычисление ДПФ и нормирование на N
+
 plt.figure(2)
 k = np.arange(0, N)
 plt.stem(k,abs(X)) # выводим модуль ДПФ в точках ДПФ
@@ -45,4 +48,3 @@ plt.plot(t ,np.real(x_ifft ))
 #plt.stem(t ,np.real(x_ifft )) # временные отсчеты колебания
 plt.xlabel('c')
 plt.ylabel('$x[n]$') 
-plt.show()
