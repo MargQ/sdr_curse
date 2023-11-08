@@ -17,7 +17,13 @@ bits = np.array([1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 (Первые 16 символов и последние 11 - синхронизирующие сигналы)
 
 Передаваемый прямоугольный сигнал
+
 ![](https://github.com/MargQ/sdr_curse/blob/master/8_Lesson/Screenshots/tx_sig.jpeg)
 
 Принятый сигнал(с небольшими искажениями)
+
+
 ![](https://github.com/MargQ/sdr_curse/blob/master/8_Lesson/Screenshots/rx_sig.jpeg)
+
+
+Дешифровка сигнала пока в процессе...
