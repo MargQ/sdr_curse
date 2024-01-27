@@ -13,8 +13,7 @@ q = np.sin(2 * np.pi * t * fc) * 2 ** 14
 2) Не забываем, что нужно задать частоту, и ось временных отсчетов на которой будут генерироваться наши значения синусойды (рекомендуется связать *fc* и *sample rate*)
 
 3) Значения отправляем на наш передатчик, незабываем, что они должны быть комплексными. (`samples = i + 1j * q`)
-
-![](https://github.com/MargQ/sdr_curse/blob/master/7_Lesson/Screenshots/1_sdr.jpeg)
+<img src = "Screenshots/1_sdr.jpeg">
 
 Прием и передача синусоид на одной SDR
 
@@ -22,15 +21,13 @@ q = np.sin(2 * np.pi * t * fc) * 2 ** 14
 
 Для этого требуется правильно прописать код, чтобы он реализовывал только передатчик или только приемник.
 
-![](https://github.com/MargQ/sdr_curse/blob/master/7_Lesson/Screenshots/2_sdr.png)
+<img src = "Screenshots/2_sdr.png">
 
 Опциональная задача. Постройте спектр принятого сигнала, что в нем примечательного?
-
-![](https://github.com/MargQ/sdr_curse/blob/master/7_Lesson/Screenshots/spectr.jpeg)
+<img src = "Screenshots/spectr.jpeg">
 
 **Задача 3**. Сгенерировать QPSK-модулированный сигнал при помощи одного ADALM PLuto в режиме полного дуплекса.
-
-![](https://github.com/MargQ/sdr_curse/blob/master/7_Lesson/Screenshots/qpsk.jpeg)
+<img src = "Screenshots/qpsk.jpeg">
 
 Получена QPSK модуляция в режиме полудуплексной передачи
 

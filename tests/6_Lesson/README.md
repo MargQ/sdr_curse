@@ -4,9 +4,9 @@
 **Задача:** необходимо передать “информацию” по радиоинтерфейсу при помощи амплитудной модуляции. Далее,принять радиосигнал при помощи метода sdr.rx(), демодулировать его, вывести на экран полученную "информацию".
 
 Передаваемый прямоугольный сигнал
-![](https://github.com/MargQ/sdr_curse/blob/master/6_Lesson/Screenshots/sig.jpeg)
+<img src = "Screenshots/sig.jpeg">
 
 Полученная битовая последовательность
-![](https://github.com/MargQ/sdr_curse/blob/master/6_Lesson/Screenshots/bits.jpeg)
+<img src = "Screenshots/bits.jpeg">
 
 Пока без дешифровки

@@ -4,11 +4,11 @@
 
 - Используя приложение  **WifiAnalyzer**, нашли канал c наиболее мощной точкой доступа. На скриншоте можно увидеть, что это **GalaxyA51IEEE**, 9 канал
 
-![](https://github.com/MargQ/sdr_curse/blob/master/3_Lesson/Screenshots/scr2.jpeg)
+<img src = "Screenshots/scr2.jpeg">
 
 - Открываем [список каналов WLAN](https://en.wikipedia.org/wiki/List_of_WLAN_channelshttps://en.wikipedia.org/wiki/List_of_WLAN_channels) в диапазоне частот 2.4 ГГц. Частота нашего канала равна **2452 МГц**
 
-![](https://github.com/MargQ/sdr_curse/blob/master/3_Lesson/Screenshots/scr1.jpeg)
+<img src = "Screenshots/scr1.jpeg">
 
 - Код самой программы:
 
@@ -42,11 +42,11 @@ plt.show()
 
 - Полученный результат:
 
-![](https://github.com/MargQ/sdr_curse/blob/master/3_Lesson/Screenshots/scr3.jpeg)
+<img src = "Screenshots/scr3.jpeg">
 
-![](https://github.com/MargQ/sdr_curse/blob/master/3_Lesson/Screenshots/scr4.jpeg)
+<img src = "Screenshots/scr4.jpeg">
 
-![](https://github.com/MargQ/sdr_curse/blob/master/3_Lesson/Screenshots/scr5.jpeg)
+<img src = "Screenshots/scr5.jpeg">
 
 
 
