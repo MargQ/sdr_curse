@@ -45,9 +45,11 @@ fn = 0.000977
 
 Задала fn = 60 * fm/fs
 ФНЧ работает с помехами
+
 <img src = "Screenshots/fnc2.png">
 <img src = "Screenshots/fnc_spectr2.png">
 <img src = "Screenshots/fnc_taps2.png">
+
 3. Получите сигнал АМ с параметрами fc = 2, fm = 0.2, Ac = 2 , Am = 1.5.
 
 <img src = "Screenshots/31.png">
