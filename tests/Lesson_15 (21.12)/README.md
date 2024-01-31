@@ -14,7 +14,7 @@
 
 При помощи ползунка можно менять частоту 
 
-<img src = "Screenshots/4.jpeg">
+<img src = "Screenshots/3.jpeg">
 
 Можно выбрать её из данного списка
 
@@ -32,4 +32,4 @@
 
 Частотный график (различные радиостанции)
 
-<img src = "Screenshots/4.jpeg">
+<img src = "Screenshots/4.png">
