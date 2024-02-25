@@ -21,12 +21,12 @@
 
 - Отправленные qpsk отсчеты 
 
-<img src = "Screenshots/qpsk_tx.png">
+<img src = "Screenshots/tx.png">
 
 
 - Принятый QPSK сигнал:
 
-<img src = "Screenshots/qpsk_rx.png">
+<img src = "Screenshots/rx.png">
 
 
 
