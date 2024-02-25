@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy import signal
 from scipy.signal import max_len_seq
+from scipy.fftpack import fft, ifft,  fftshift, ifftshift
+
 
 sdr = adi.Pluto('ip:192.168.2.1')
 sdr.sample_rate = 1000000
@@ -33,6 +35,7 @@ m=2*data-1
 #ts1t=2*ts1-1
 ts1t=b7
  
+
 b = np.ones(int(ns))
  
 #qpsk
@@ -59,5 +62,24 @@ sdr.rx_buffer_size =3*n_frame
 xrec1=sdr.rx()
 xrec = xrec1/np.mean(xrec1**2)
 plt.figure(2)
+#plt.xlim(-3000,3000)
+#plt.ylim(-3000,3000)
 plt.scatter(xrec.real,xrec.imag)
+size = len(xrec1)
+k = np.arange(0, size)
+xrec2 = fft(xrec,size)
+xrec2 = fftshift(xrec2)
+max_f = np.argmax(abs(xrec2))
+w = np.linspace(-np.pi,np.pi,size)
+max_index = w[max_f]
+ph = max_index/4
+phlc = np.exp(-1j*ph)
+qpsk_ph = xrec1 *phlc
+plt.figure(3)
+w = np.linspace(-np.pi,np.pi,size)
+
+plt.xlim(-3000,3000)
+plt.ylim(-3000,3000)
+plt.scatter(qpsk_ph.real, qpsk_ph.imag)
+plt.show
 sdr.tx_destroy_buffer()
