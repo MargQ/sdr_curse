@@ -8,7 +8,7 @@
 
 
 
-Принятый сигнал
+Сигнал до коррекии
 
 <img src = "Screenshots/tx.png">
 
@@ -18,7 +18,7 @@
 <img src = "Screenshots/fft.png">
 
 
-Принятый сигнал
+DPLL
 
 <img src = "Screenshots/rx.png">
 
