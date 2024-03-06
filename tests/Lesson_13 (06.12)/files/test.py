@@ -5,11 +5,10 @@ from scipy import signal
 from scipy.signal import max_len_seq
 from scipy.fftpack import fft, ifft,  fftshift, ifftshift
 
-
 sdr = adi.Pluto('ip:192.168.3.1')
 sdr.sample_rate = 1000000
-sdr.rx_lo = 2000000000
-sdr.tx_lo = 2000000000
+sdr.rx_lo = 2100000000
+sdr.tx_lo = 2100000000
 sdr.tx_cyclic_buffer = True
 #sdr.tx_cyclic_buffer = False
 sdr.tx_hardwaregain_chan0 = -5
@@ -18,7 +17,7 @@ sdr.gain_control_mode_chan0 = "slow_attack"
 
 fs = sdr.sample_rate
 rs=100000
-ns=fs//rs
+ns=fs/rs
  
 
 data=max_len_seq(8)[0] 
@@ -39,47 +38,55 @@ ts1t=b7
 b = np.ones(int(ns))
  
 #qpsk
+
 x=np.reshape(m,(2,128))
 xi=x[0,:]
 xq=x[1,:]
 x_bb=(xi+1j*xq)/np.sqrt(2)
-plt.figure(1)
-plt.scatter(x_bb.real,x_bb.imag)
- 
- 
+#plt.figure(1)
+#plt.scatter(x_bb.real,x_bb.imag)
+
 xiq=2**14*x_bb
  
-n_frame= len(xiq)
-
-sdr.tx(xiq)
-
+n_frame = len(xiq)
+# while 1:
+#     print(1)
+#     sdr.tx(xiq)
+sdr.tx(xiq) 
 sdr.rx_rf_bandwidth = 1000000
 sdr.rx_destroy_buffer()
 sdr.rx_hardwaregain_chan0 = -5
-sdr.rx_buffer_size =3*n_frame
+sdr.rx_buffer_size = n_frame*3
 
 
 xrec1=sdr.rx()
-xrec = xrec1/np.mean(xrec1**2)
-plt.figure(2)
-#plt.xlim(-3000,3000)
-#plt.ylim(-3000,3000)
-plt.scatter(xrec.real,xrec.imag)
+sdr.tx_destroy_buffer()
 size = len(xrec1)
+
+plt.figure(1)
+plt.scatter(xrec1.real, xrec1.imag)
+
+xrec = xrec1**4 # возведение в степень qpsk
 k = np.arange(0, size)
 xrec2 = fft(xrec,size)
 xrec2 = fftshift(xrec2)
-max_f = np.argmax(abs(xrec2))
+
 w = np.linspace(-np.pi,np.pi,size)
+max_f = np.argmax(abs(xrec2))
+
+#print(max_f)
 max_index = w[max_f]
+#print("max in 'w' = ",max_index)
 ph = max_index/4
 phlc = np.exp(-1j*ph)
-qpsk_ph = xrec1 *phlc
-plt.figure(3)
-w = np.linspace(-np.pi,np.pi,size)
+qpsk_ph = xrec1 * phlc
 
-plt.xlim(-3000,3000)
-plt.ylim(-3000,3000)
+
+plt.figure(2)
+plt.plot(w,abs(xrec2))
+
+plt.figure(3)
 plt.scatter(qpsk_ph.real, qpsk_ph.imag)
-plt.show
-sdr.tx_destroy_buffer()
+
+plt.show()
+ 
